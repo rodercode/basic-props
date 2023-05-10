@@ -3,6 +3,7 @@ import "./App.css";
 import GreetProps from "./components/Greet";
 import Person from "./components/Person";
 import PersonList from "./components/PersonList";
+import AnimalList from "./components/AnimalList";
 
 const App = () => {
   const name = "Johan";
@@ -19,17 +20,32 @@ const App = () => {
   interface Name {
     first: string;
     last: string;
+    id: number;
   }
 
-  const person: Name = {
-    first: "Johan",
-    last: "Johansson",
-  };
+  interface pet {
+    type: string;
+    name: string;
+    age: number;
+    id: number;
+  }
+
+  const petList: pet[] = [
+    { type: "cat", name: "Misse", age: 4, id: 1 },
+    { type: "dog", name: "Fido", age: 2, id: 2 },
+    { type: "bird", name: "Polly", age: 1, id: 3 },
+  ];
+
+  // const person: Name = {
+  //   first: "Johan",
+  //   last: "Johansson",
+  //   id: 1
+  // };
 
   const nameList: Name[] = [
-    { first: "Johan", last: "Johansson" },
-    { first: "Kalle", last: "Karlsson" },
-    { first: "Lisa", last: "Larsson" },
+    { first: "Johan", last: "Johansson", id: 1 },
+    { first: "Kalle", last: "Karlsson", id: 2 },
+    { first: "Lisa", last: "Larsson", id: 3 },
   ];
 
   return (
@@ -37,6 +53,7 @@ const App = () => {
       <GreetProps name={name} messageCount={number} isLoggedIn={isOnline} />
       {/* <Person name={person.name} age={person.age} location={person.location} /> */}
       <PersonList names={nameList} />
+      <AnimalList pets={petList} />
     </div>
   );
 };

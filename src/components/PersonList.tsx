@@ -4,6 +4,7 @@ type PersonListProps = {
   names: {
     first: string;
     last: string;
+    id:number
   }[];
 };
 
@@ -12,7 +13,7 @@ const PersonList = (props: PersonListProps) => {
     <div>
       {props.names.map((name) => {
         return (
-          <h2 key={name.first}>
+          <h2 key={name.id}>
             {name.first} {name.last}
           </h2>
         );
